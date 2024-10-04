@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Napay</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #1e3a8a;
+            color: white;
+        }
+
+        .top-bar .menu-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .top-bar h1 {
+            font-size: 24px;
+        }
+
+        /* Promo Section */
+        .promo {
+            background-color: #f1f5f9;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .promo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .promo p {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 20px;
+            background-color: white;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .service-icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .service-item {
+            width: 60px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .service-item i {
+            font-size: 30px;
+            color: #1e3a8a;
+        }
+
+        .service-item p {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 20px;
+        }
+
+        .modal-content .product-icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .modal-content .product-item {
+            width: 60px;
+            text-align: center;
+        }
+
+        .modal-content .product-item i {
+            font-size: 30px;
+            color: #1e3a8a;
+        }
+
+        .modal-content .product-item p {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: red;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header and Logo -->
+    <header>
+        <div class="top-bar">
+            <div class="menu-icon">
+                <span>☰</span>
+            </div>
+            <h1>Napay.com</h1>
+        </div>
+    </header>
+
+    <!-- Promo Section -->
+    <section class="promo">
+        <div class="promo-image">
+            <img src="p.png" alt="Promo iPhone 16">
+           <marquee> <p>Sekarang kamu gak takut lagi kehabisan kuota karna Napay selalu ada selalu bisa.</p></marquee>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Travel, Top Up & Tagihan</h2>
+        <div class="service-icons">
+            <div class="service-item" data-name="Game">
+                <i class="fas fa-gamepad"></i>
+                <p>Game</p>
+            </div>
+            <div class="service-item" data-name="E-Wallet">
+                <i class="fas fa-wallet"></i>
+                <p>E-Wallet</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-exchange-alt"></i>
+                <p>Convert Pulsa ke Uang</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-users-cog"></i>
+                <p>Jasa Sosial Media</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-mobile-alt"></i>
+                <p>Pulsa</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-sim-card"></i>
+                <p>Paket Data</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-lightbulb"></i>
+                <p>Listrik</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-percentage"></i>
+                <p>Promo</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Game products -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Game Products</h3>
+            <div class="product-icons">
+                <div class="product-item">
+                    <i class="fas fa-fire"></i>
+                    <p>Freefire</p>
+                </div>
+                <div class="product-item">
+                    <i class="fas fa-shooting-star"></i>
+                    <p>PUBG</p>
+                </div>
+                <div class="product-item">
+                    <i class="fas fa-dragon"></i>
+                    <p>MLBB</p>
+                </div>
+                <div class="product-item">
+                    <i class="fas fa-cloud"></i>
+                    <p>Live After</p>
+                </div>
+                <div class="product-item">
+                    <i class="fas fa-user-ninja"></i>
+                    <p>Undown</p>
+                </div>
+                <div class="product-item">
+                    <i class="fas fa-dice"></i>
+                    <p>Higgs Domino</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for E-Wallet products -->
+    <div id="ewalletModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>E-Wallet Products</h3>
+            <div class="product-icons">
+                <div class="product-item">
+                    <i class="fas fa-wallet"></i>
+                    <p>Dana</p>
+                </div>
+                <div class="product-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <p>OVO</p>
+                </div>
+                <div class="product-item">
+                    <i class="fas fa-coins"></i>
+                    <p>GoPay</p>
+                </div>
+                <div class="product-item">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <p>PayPal</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Open modal
+        const gameModal = document.getElementById("gameModal");
+        const ewalletModal = document.getElementById("ewalletModal");
+        const closeButtons = document.querySelectorAll(".close");
+
+        // Event listener for service items
+        document.querySelector("[data-name='Game']").addEventListener("click", () => {
+            gameModal.style.display = "flex";
+        });
+
+        document.querySelector("[data-name='E-Wallet']").addEventListener("click", () => {
+            ewalletModal.style.display = "flex";
+        });
+
+        // Close modal
+        closeButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                gameModal.style.display = "none";
+                ewalletModal.style.display = "none";
+            });
+        });
+
+        // Close modal when clicking outside content
+        window.onclick = function(event) {
+            if (event.target === gameModal || event.target === ewalletModal) {
+                gameModal.style.display = "none";
+                ewalletModal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
